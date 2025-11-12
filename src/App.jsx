@@ -14,9 +14,11 @@ function App() {
     ]
 
   const [tasks, setTasks] = useState(ToDOList)
+  const [newTask, setNewTask] = useState('')
 
-
-
+  function handleChange(e) {
+    setNewTask(e.target.value)
+  }
 
   return (
     <>
@@ -32,7 +34,9 @@ function App() {
     Ciclare il list item dentro ul tramite .map, inserendo tutto il tag <li>...</li>
     Occorre una key nei campi li
     Rendiamo componente la singola task li e passiamo dei props !!!!!!!!!!!!!
-    Inserire un form per aggiungere nuove tasks 
+    Inserire un form per aggiungere nuove tasks tramite input group con bottone
+    Aggiungere un value a input per lagarlo da una variabile di stato
+    Creare quindi una variabile di stato
 
 
 
@@ -47,18 +51,19 @@ function App() {
           <div className='card p-3'>
 
             <form>
-              <div class="mb-3">
-                <label for="task" class="form-label">New Task</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="task"
-                  id="task"
-                  aria-describedby="taskHelper"
-                  placeholder="Type your new task"
-                />
 
+              <div className="input-group mb-3">
+                <input
+                  onChange={handleChange}
+                  value={newTask}
+                  type="text"
+                  className="form-control"
+                  placeholder="New Task"
+                  aria-label="New Task"
+                  aria-describedby="button-addon2" />
+                <button className="btn btn-outline-secondary" type="button" id="button-addon2">Add task</button>
               </div>
+
 
             </form>
 
@@ -82,7 +87,7 @@ function App() {
 
 
     </>
-  )
+  );
 }
 
 export default App
