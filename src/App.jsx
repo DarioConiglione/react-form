@@ -20,6 +20,11 @@ function App() {
     setNewTask(e.target.value)
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(e);
+  }
+
   return (
     <>
 
@@ -35,8 +40,12 @@ function App() {
     Occorre una key nei campi li
     Rendiamo componente la singola task li e passiamo dei props !!!!!!!!!!!!!
     Inserire un form per aggiungere nuove tasks tramite input group con bottone
-    Aggiungere un value a input per lagarlo da una variabile di stato
-    Creare quindi una variabile di stato
+    Aggiungere un value a input per lagarlo da una variabile di stato 
+    Creare quindi una variabile di stato - const [newTask, setNewTask] = useState('')
+    Impostare il value = {newTask}
+    Rendere l'elemento controllabile con onChange ed una funzione al suo interno.
+    Creare la funzione per aggiornare la variabile di stato setNewTask
+
 
 
 
@@ -50,7 +59,7 @@ function App() {
 
           <div className='card p-3'>
 
-            <form>
+            <form onSubmit={handleSubmit}>
 
               <div className="input-group mb-3">
                 <input
@@ -58,10 +67,10 @@ function App() {
                   value={newTask}
                   type="text"
                   className="form-control"
-                  placeholder="New Task"
-                  aria-label="New Task"
-                  aria-describedby="button-addon2" />
-                <button className="btn btn-outline-secondary" type="button" id="button-addon2">Add task</button>
+                  placeholder="new-task"
+                  aria-label="new-task"
+                  aria-describedby="add-task" />
+                <button className="btn btn-outline-secondary" type="submit" id="add-task">Add task</button>
               </div>
 
 
