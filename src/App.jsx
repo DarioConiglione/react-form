@@ -20,10 +20,22 @@ function App() {
 
   return (
     <>
+      <div className='container'>
+        <div className='col-6 mx-auto'>
+          <div className='card'>
+            <h3>Lista di articoli</h3>
 
+            <ul className="list-group">
+              <li className="list-group-item d-flex justify-content-between align-items-center">
+                <button className="btn btn-sm btn-danger">
+                  <i className="bi bi-trash"></i>
+                </button>
 
-
-
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
     </>
   );
