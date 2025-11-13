@@ -16,11 +16,22 @@ function App() {
     { id: 10, titolo: "Le abitudini dei leader di successo" }
   ];
 
-  const [articoloCorrente, setArticoloCorrente] = useState(articoli)
-  const [nuovoArticolo, setNuovoArticolo] = useState('')
+  const [listaArticoli, setListaArticoli] = useState(articoli)
+  const [nuovoArticolo, setNuovoArticolo] = useState([])
 
   function handleChange(e) {
-    setNewTask(e.target.value)
+    setNuovoArticolo(e.target.value)
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (nuovoArticolo.length > 10) {
+      const nuovoTitolo = [...listaArticoli, { id: index++, title: nuovoArticolo }]
+      setNuovoArticolo(nuovoTitolo)
+      setArticoloCorrente(articoli)
+    }
+
+
   }
 
 
@@ -34,7 +45,7 @@ function App() {
 
             {/* inserimento form e importazione input group da bootstrap */}
 
-            <form onSubmit={handleSubmbit}>
+            <form onSubmit={handleSubmit}>
               <div className="input-group mb-3">
                 <input
                   onChange={handleChange}
