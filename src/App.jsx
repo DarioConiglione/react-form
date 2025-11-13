@@ -17,17 +17,45 @@ function App() {
   ];
 
   const [articoloCorrente, setArticoloCorrente] = useState(articoli)
+  const [nuovoArticolo, setNuovoArticolo] = useState('')
+
+  function handleChange(e) {
+    setNewTask(e.target.value)
+  }
 
 
 
   return (
     <>
+      {/* Creazione layout */}
       <div className='container'>
         <div className='col-6 mx-auto'>
           <div className='card'>
+
+            {/* inserimento form e importazione input group da bootstrap */}
+
+            <form onSubmit={handleSubmbit}>
+              <div className="input-group mb-3">
+                <input
+                  onChange={handleChange}
+                  value={nuovoArticolo}
+                  type="text"
+                  className="form-control"
+                  placeholder="new-article"
+                  aria-label="new-article"
+                  aria-describedby="add-article" />
+                <button className="btn btn-outline-secondary" type="submit" id="add-article">Add task</button>
+              </div>
+            </form>
+
+
+
+
             <h3>Lista di articoli</h3>
 
             <ul className="list-group">
+
+              {/* stampare lista in DOM */}
 
               {
                 articoli.map((articolo) => (
