@@ -26,9 +26,9 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
     if (nuovoArticolo.length > 10) {
-      const nuovoTitolo = [...listaArticoli, { id: index++, title: nuovoArticolo }]
-      setNuovoArticolo(nuovoTitolo)
-      setArticoloCorrente(articoli)
+      const nuovoTitolo = [...listaArticoli, { id: id++, title: nuovoArticolo }]
+      setNuovoArticolo(nuovoTitolo);
+      setListaArticoli(articoli);
     }
 
 
@@ -70,7 +70,7 @@ function App() {
 
               {
                 articoli.map((articolo) => (
-                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                  <li className="list-group-item d-flex justify-content-between align-items-center" key={articolo.id}>
                     {articolo.titolo}
                     <button className="btn btn-sm btn-danger">
                       <i className="bi bi-trash"></i>
