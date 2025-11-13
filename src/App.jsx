@@ -22,7 +22,11 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
+    if (newTask.length > 2) {
+      const nuovaArrayDiTasks = [newTask, ...tasks]
+      setTasks(nuovaArrayDiTasks)
+      console.log(newTask);
+    }
   }
 
   return (
@@ -45,22 +49,17 @@ function App() {
     Impostare il value = {newTask}
     Rendere l'elemento controllabile con onChange ed una funzione al suo interno.
     Creare la funzione per aggiornare la variabile di stato setNewTask
-
-
-
+    Creare la funzione per prevenire il comportamento del form
+    Alla funzione sopra si aggiunge una condizione "if" affinche se newTask (che è il value di input) è maggiore di 2, 
+          allora si crea una nuova array (const nomeArray =[]) per clonare la vecchia array tasks ed aggiungere il nuovo elemento(newTask); fatto ciò si può passare questa nuova array al setTasks che aggiornerà il valore corrente tasks.
 
     */}
 
       <div className='container'>
-
         <div className='col-6 mx-auto'>
-
           <h2>To Do List</h2>
-
           <div className='card p-3'>
-
             <form onSubmit={handleSubmit}>
-
               <div className="input-group mb-3">
                 <input
                   onChange={handleChange}
