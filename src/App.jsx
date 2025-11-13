@@ -16,6 +16,8 @@ function App() {
     { id: 10, titolo: "Le abitudini dei leader di successo" }
   ];
 
+  const [articoloCorrente, setArticoloCorrente] = useState(articoli)
+
 
 
   return (
